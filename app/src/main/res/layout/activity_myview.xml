@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:nt="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.zybang.myapplication.MyviewActivity">
+
+<com.example.zybang.myapplication.com.example.zybang.v2.LogicView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone"
+    />
+    <com.example.zybang.myapplication.com.example.zybang.com.example.zybang.v3.LogicView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+    <com.example.zybang.myapplication.com.example.zybang.com.example.zybang.v3.MyText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+    <com.example.zybang.myapplication.com.example.zybang.v4.NumText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        nt:Num="3"
+        nt:xScroll="true"
+        />
+</RelativeLayout>

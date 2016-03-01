@@ -1,0 +1,56 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".com.example.zybang.fragment.RotateAnimFragment">
+
+    <Button
+        android:id="@+id/rotate_start_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="开启震动"
+        android:gravity="center"
+        android:textSize="13dp"
+        android:background="@drawable/btn_bg"
+        android:layout_alignBottom="@+id/translate_btn"
+        android:layout_alignTop="@+id/translate_btn" />
+    <Button
+        android:id="@+id/translate_btn"
+        android:layout_marginTop="19dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开启位移"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/rotate_start_btn"
+        android:layout_toEndOf="@+id/rotate_start_btn" />
+    <Button
+        android:id="@+id/rotate_end_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="停止震动"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/translate_btn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <ImageView
+        android:id="@+id/rotate_im"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/rotate_start_btn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="开启缩放"
+        android:layout_height="wrap_content"
+        android:id="@+id/scale_start"
+        android:layout_alignBottom="@+id/rotate_end_btn"
+        android:layout_toRightOf="@+id/translate_btn"
+        android:layout_toLeftOf="@+id/rotate_end_btn"
+        android:layout_toStartOf="@+id/rotate_end_btn" />
+</RelativeLayout>
