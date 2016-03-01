@@ -24,8 +24,8 @@ public class EditAnimFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_edit_anim, container, false);
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.beginTransaction().add(R.id.fragment_container,FragmentFactory.createFragment(2)).commit();
+        /*FragmentManager fragmentManager = getChildFragmentManager();
+        fragmentManager.beginTransaction().add(R.id.fragment_container,FragmentFactory.createFragment(2)).commit();*/
 
         return view;
     }
