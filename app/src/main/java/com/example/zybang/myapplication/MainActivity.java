@@ -2,15 +2,15 @@ package com.example.zybang.myapplication;
 
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
 import android.widget.Button;
 
 import com.example.zybang.myapplication.com.example.zybang.customview.ArrowDownloadButton;
@@ -49,7 +49,6 @@ public class MainActivity extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-
     }
 
     @Override
@@ -70,6 +69,12 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 3:
                 mTitle = getString(R.string.title_section3);
+                break;
+            case 4:
+                mTitle = getString(R.string.title_section4);
+                break;
+            case 5:
+                mTitle = getString(R.string.title_section5);
                 break;
         }
     }
@@ -137,6 +142,14 @@ public class MainActivity extends ActionBarActivity
                     startActivity(it);
                 }
             });
+
+            Button btn2 = (Button) rootView.findViewById(R.id.go_to_db);
+            btn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getActivity(), dbActivity.class));
+                }
+            });
             return rootView;
         }
 
@@ -147,7 +160,7 @@ public class MainActivity extends ActionBarActivity
                     if ((count % 2) == 0) {
                         arrowDownloadButton.startAnimating();
                         Timer timer = new Timer();
-                       /* timer.schedule(new TimerTask() {
+                        timer.schedule(new TimerTask() {
                             @Override
                             public void run() {
                                 getActivity().runOnUiThread(new Runnable() {
@@ -158,7 +171,7 @@ public class MainActivity extends ActionBarActivity
                                     }
                                 });
                             }
-                        }, 800, 20);*/
+                        }, 800, 20);
                     } else {
                         progress = 0;
                         arrowDownloadButton.reset();

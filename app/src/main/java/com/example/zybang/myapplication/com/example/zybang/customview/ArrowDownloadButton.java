@@ -391,7 +391,7 @@ public class ArrowDownloadButton extends View {
      */
     protected void drawArrow(Canvas canvas) {
         if (jumpPoint.x != -1) {
-            canvas.drawCircle(jumpPoint.x, jumpPoint.y, smallRaduis, smallPaint);
+            canvas.drawCircle(jumpPoint.x, jumpPoint.y, smallRaduis, smallPaint);//白色 fill
         }
         if (bezier) {
             arrowPath.reset();

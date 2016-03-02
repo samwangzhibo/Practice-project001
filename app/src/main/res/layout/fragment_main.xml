@@ -40,4 +40,13 @@
         android:layout_marginTop="20dp"
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="进入数据库"
+        android:id="@+id/go_to_db"
+        android:layout_below="@+id/arrow_btn"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

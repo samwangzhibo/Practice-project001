@@ -22,6 +22,12 @@ public class FragmentFactory {
             case 2:
                 f = new EditAnimFragment();
                 break;
+            case 3:
+                f = new PropertyAnimFragment();
+                break;
+            case 4:
+                f = new UnlockFragment();
+                break;
         }
         return f;
     }
