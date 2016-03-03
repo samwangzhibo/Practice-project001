@@ -33,20 +33,18 @@
         />
     <com.example.zybang.myapplication.com.example.zybang.customview.ArrowDownloadButton
         android:id="@+id/arrow_btn"
-        android:layout_below="@id/bt"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_below="@+id/go_to_db"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="进入数据库"
         android:id="@+id/go_to_db"
-        android:layout_below="@+id/arrow_btn"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/bt"
+        android:layout_alignLeft="@+id/bt"
+        android:layout_alignStart="@+id/bt" />
 
 </RelativeLayout>
