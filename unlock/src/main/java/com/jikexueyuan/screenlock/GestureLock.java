@@ -1,22 +1,17 @@
 package com.jikexueyuan.screenlock;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.view.MotionEvent.ACTION_MOVE;
 
 
 public class GestureLock extends View {
@@ -138,6 +133,7 @@ public class GestureLock extends View {
             if (isDraw) {
                 drawLine(canvas, a, new Point(mouseX, mouseY));
             }
+
         }
     }
 

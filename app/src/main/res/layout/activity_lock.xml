@@ -6,22 +6,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    tools:context="com.jikexueyuan.screenlock.LockActivity">
 
-    <Button
+    <view
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="设置图案密码"
-        android:id="@+id/set_pass"
+        class="com.example.zybang.myapplication.com.example.zybang.customview.MyUnlockView"
+        android:id="@+id/LockView"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="82dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="测试图案密码"
-        android:id="@+id/test_pass"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

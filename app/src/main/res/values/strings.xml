@@ -6,6 +6,7 @@
     <string name="title_section3">Section 3</string>
     <string name="title_section4">属性动画</string>
     <string name="title_section5">9宫格</string>
+    <string name="title_section6">点击事件</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -17,4 +18,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_db">dbActivity</string>
+    <string name="title_activity_activity_lock">activity_lock</string>
+    <string name="title_activity_words">WordsActivity</string>
+    <string name="title_activity_backlayout">backlayoutActivity</string>
 </resources>

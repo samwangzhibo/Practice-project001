@@ -28,6 +28,8 @@ public class FragmentFactory {
             case 4:
                 f = new UnlockFragment();
                 break;
+            case 5:
+                f = new ClickFragment();
         }
         return f;
     }

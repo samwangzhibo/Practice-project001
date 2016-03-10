@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.zybang.myapplication">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +22,16 @@
         <activity android:name=".MyviewActivity" />
         <activity
             android:name=".dbActivity"
-            android:label="@string/title_activity_db"></activity>
+            android:label="@string/title_activity_db" />
+        <activity
+            android:name=".ui.activity.activity_lock"
+            android:label="@string/title_activity_activity_lock" />
+        <activity
+            android:name=".ui.activity.WordsActivity"
+            android:label="@string/title_activity_words" />
+        <activity
+            android:name=".ui.activity.backlayoutActivity"
+            android:label="@string/title_activity_backlayout"></activity>
     </application>
 
 </manifest>

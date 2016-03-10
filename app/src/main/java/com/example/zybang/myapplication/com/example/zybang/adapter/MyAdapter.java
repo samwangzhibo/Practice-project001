@@ -1,6 +1,7 @@
 package com.example.zybang.myapplication.com.example.zybang.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.zybang.myapplication.R;
+import com.example.zybang.myapplication.ui.activity.WordsActivity;
 
 import java.util.ArrayList;
 
@@ -39,7 +41,7 @@ public class MyAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View view = convertView;
         ViewHolder viewHolder = null;
         if (view == null) {
@@ -47,6 +49,15 @@ public class MyAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             viewHolder.tv = (TextView) view.findViewById(R.id.item_tv);
             viewHolder.tv.setText(datas.get(position));
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent it = new Intent(ctx.getApplicationContext(), WordsActivity.class);
+                    if (datas.get(position) != null)
+                        it.putExtra("word", datas.get(position));
+                    ctx.startActivity(it);
+                }
+            });
             view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) view.getTag();

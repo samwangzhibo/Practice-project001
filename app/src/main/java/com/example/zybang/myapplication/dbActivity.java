@@ -32,7 +32,7 @@ public class dbActivity extends ActionBarActivity {
     LinkedBlockingQueue<String> mBlockingQueue = new LinkedBlockingQueue<String>();
     String et_now;
     //boolean isCancle = false;
-    int DELAY_TIME = 1000;
+    int DELAY_TIME = 100;
 
     SQLiteDatabase db1;
     Handler mHandler = new Handler() {
@@ -121,6 +121,7 @@ public class dbActivity extends ActionBarActivity {
                                 try {
                                     while ((et_now = mBlockingQueue.take()) != null) {
                                         Thread.sleep(DELAY_TIME);
+
                                         //如果有改变  不查数据库
                                         if (mBlockingQueue.size() > 0) {
                                             while (mBlockingQueue.size() != 1) {
@@ -129,6 +130,7 @@ public class dbActivity extends ActionBarActivity {
                                         } else {
                                             getDataFromDB(db1, et_now);
                                             mHandler.sendEmptyMessage(1);
+
                                         }
 
                                     }
