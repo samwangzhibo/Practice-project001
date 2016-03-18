@@ -10,5 +10,19 @@
         android:layout_height="wrap_content"
         android:text="goto backlayout" />
 
+    <Button
+        android:layout_below="@id/goto_backlayout"
+        android:id="@+id/click_add_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="添加一行" />
 
+    <com.example.zybang.myapplication.com.example.zybang.customview.MyLineLayout
+        android:id="@+id/myLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/divider"
+        android:background="#0dbc6a"
+        android:orientation="vertical"
+        android:layout_below="@id/click_add_line" />
 </RelativeLayout>

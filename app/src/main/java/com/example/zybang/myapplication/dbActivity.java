@@ -26,13 +26,14 @@ public class dbActivity extends ActionBarActivity {
     ArrayList<String> datas = new ArrayList<String>();
     EditText et_ui, et_baby;
     ListView lv;
-    long before_time;
+    long before_time = 0;
     boolean isUI = true;
     Thread myThread;
     LinkedBlockingQueue<String> mBlockingQueue = new LinkedBlockingQueue<String>();
-    String et_now;
+
     //boolean isCancle = false;
-    int DELAY_TIME = 100;
+    int DELAY_TIME = 500;
+
 
     SQLiteDatabase db1;
     Handler mHandler = new Handler() {
@@ -40,6 +41,9 @@ public class dbActivity extends ActionBarActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
+                    if (et_baby.getText().length() == 0) {
+                        clearData();
+                    }
                     adapter.notifyDataSetChanged();
                     Log.e("wzb", "子线程刷新时间：" + (System.currentTimeMillis() - before_time) + "ms");
                     break;
@@ -100,21 +104,37 @@ public class dbActivity extends ActionBarActivity {
         et_baby.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
                 if (!isUI) {
-                    try {
+                    //子线程的话，每次变化都postDelay(Runnable)
+                    if (et_baby.getText().length() > 0) {
+
+                        long currentTime = System.currentTimeMillis();
+                        if (currentTime - before_time > DELAY_TIME) {
+                            mHandler.postDelayed(myRunnable, DELAY_TIME);
+                        } else {
+                            //移除上次runnable
+                        }
+                        before_time = currentTime;
+                    } else {
+                        clearData();
+                        adapter.notifyDataSetChanged();
+                    }
+                    /*try {
                         clearData();
                         before_time = System.currentTimeMillis();
                         if (et_baby.getText().length() != 0)
                             mBlockingQueue.put(et_baby.getText().toString());
                     } catch (InterruptedException e) {
                         e.printStackTrace();
-                    }
+                    }*/
 
-                    if (myThread == null) {
+                  /*  if (myThread == null) {
                         myThread = new Thread() {
                             @Override
                             public void run() {
@@ -141,7 +161,7 @@ public class dbActivity extends ActionBarActivity {
                             }
                         };
                         myThread.start();
-                    }
+                    }*/
 
                 }
             }
@@ -174,6 +194,21 @@ public class dbActivity extends ActionBarActivity {
 
     }
 
+    private Runnable myRunnable = new Runnable() {
+        @Override
+        public void run() {
+            Thread myThread = new Thread() {
+                @Override
+                public void run() {
+                    super.run();
+                    getDataFromDB(db1, et_baby.getText().toString());
+                    mHandler.sendEmptyMessage(1);
+                }
+            };
+            myThread.start();
+        }
+    };
+
     void getDataFromDB(SQLiteDatabase sqLiteDatabase, String str) {
 
         Cursor cursor = sqLiteDatabase.query(true, "cards", new String[]{"card"}, "card like ?", new String[]{str + "%"}, null, null, "card asc", "0,5");
@@ -190,12 +225,12 @@ public class dbActivity extends ActionBarActivity {
     }
 
     void clearData() {
+        if (datas != null)
         datas.clear();
     }
 
     void addDataToDB(SQLiteDatabase sqLiteDatabase, String str) {
         sqLiteDatabase.execSQL("insert into cards(card) values('" + str + "')");
-
     }
 
 
