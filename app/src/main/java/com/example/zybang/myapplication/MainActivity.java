@@ -16,9 +16,6 @@ import android.widget.Button;
 import com.example.zybang.myapplication.com.example.zybang.customview.ArrowDownloadButton;
 import com.example.zybang.myapplication.com.example.zybang.fragment.FragmentFactory;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import ch.halcyon.squareprogressbar.SquareProgressBar;
 
 public class MainActivity extends ActionBarActivity
@@ -79,6 +76,9 @@ public class MainActivity extends ActionBarActivity
             case 6:
                 mTitle = getString(R.string.title_section6);
                 break;
+            case 7:
+                mTitle = getString(R.string.title_section7);
+                break;
         }
     }
 
@@ -133,8 +133,8 @@ public class MainActivity extends ActionBarActivity
             squareProgressBar.setProgress(50.0);
             squareProgressBar.setColor("#E5C100");
 
-            arrowDownloadButton = (ArrowDownloadButton) rootView.findViewById(R.id.arrow_btn);
-            arrowDownloadButton.setOnClickListener(this);
+            //arrowDownloadButton = (ArrowDownloadButton) rootView.findViewById(R.id.arrow_btn);
+            //arrowDownloadButton.setOnClickListener(this);
 
 
             Button btn = (Button) rootView.findViewById(R.id.bt);
@@ -158,7 +158,7 @@ public class MainActivity extends ActionBarActivity
 
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
+            /*switch (v.getId()) {
                 case R.id.arrow_btn:
                     if ((count % 2) == 0) {
                         arrowDownloadButton.startAnimating();
@@ -183,7 +183,7 @@ public class MainActivity extends ActionBarActivity
                     break;
                 default:
                     break;
-            }
+            }*/
         }
     }
 

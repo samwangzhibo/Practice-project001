@@ -16,13 +16,16 @@
         android:textSize="18sp"
         android:text="words" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="50dp"
+        android:layout_centerInParent="true">
     <ImageView
         android:id="@+id/play_audio_im"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/play_audio"
-        android:layout_below="@+id/words"
-        android:layout_marginTop="20dp"
-        android:layout_alignRight="@+id/words"
-        android:layout_alignEnd="@+id/words" />
+        android:background="@drawable/search_word_audio_blue" />
+    </LinearLayout>
+
 </RelativeLayout>

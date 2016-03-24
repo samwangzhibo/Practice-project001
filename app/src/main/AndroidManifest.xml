@@ -31,7 +31,11 @@
             android:label="@string/title_activity_words" />
         <activity
             android:name=".ui.activity.backlayoutActivity"
-            android:label="@string/title_activity_backlayout"></activity>
+            android:label="@string/title_activity_backlayout" />
+        <activity
+            android:name=".ui.activity.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/Transparent"></activity>
     </application>
 
 </manifest>

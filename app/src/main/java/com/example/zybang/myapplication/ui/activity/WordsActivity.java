@@ -1,5 +1,6 @@
 package com.example.zybang.myapplication.ui.activity;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class WordsActivity extends ActionBarActivity {
     boolean isFirst = true;
     File audio_file;
     String Cache_path;
+    private AnimationDrawable frameAnim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +47,34 @@ public class WordsActivity extends ActionBarActivity {
                 }
                 isFirst = false;
                 play();
+
+                frameAnim = (AnimationDrawable) getResources().getDrawable(R.drawable.sear_word);
+                play_im.setBackgroundDrawable(frameAnim);
+                startAnim();
+
+                player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        endAnim();
+                    }
+                });
             }
         });
+
     }
 
+    private void startAnim() {
+        if (frameAnim != null && !frameAnim.isRunning()) {
+            frameAnim.start();
+        }
+    }
+
+    private void endAnim() {
+        if (frameAnim != null && frameAnim.isRunning()) {
+            frameAnim.stop();
+            play_im.setBackgroundResource(R.drawable.search_word_audio_blue);
+        }
+    }
 
     private void play() {
         if (player != null && !player.isPlaying()) {
