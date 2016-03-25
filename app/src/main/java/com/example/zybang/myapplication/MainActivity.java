@@ -54,6 +54,7 @@ public class MainActivity extends ActionBarActivity
         fragmentManager.beginTransaction()
                 .replace(R.id.container, FragmentFactory.createFragment(position))
                 .commit();
+        onSectionAttached(position);
     }
 
     public void onSectionAttached(int number) {

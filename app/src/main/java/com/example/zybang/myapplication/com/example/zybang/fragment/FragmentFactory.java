@@ -30,8 +30,10 @@ public class FragmentFactory {
                 break;
             case 5:
                 f = new ClickFragment();
+                break;
             case 6:
                 f = new CustomViewFragment();
+                break;
         }
         return f;
     }
