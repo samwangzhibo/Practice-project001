@@ -1,12 +1,19 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.zybang.myapplication.com.example.zybang.fragment.WebViewFragment">
 
+    <TextView
+        android:id="@+id/mWebView_tv213"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="webview检测漏洞"
+        android:gravity="center_horizontal" />
     <WebView
         android:id="@+id/mWebView"
+        android:layout_below="@id/mWebView_tv213"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></WebView>
 
-</FrameLayout>
+</RelativeLayout>

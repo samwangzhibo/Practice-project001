@@ -76,7 +76,7 @@ public class CustomViewFragment extends Fragment implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.custom_scrollview1:
-                Intent it = new Intent(getActivity(), ScrollingActivity.class);
+                Intent it = ScrollingActivity.createIntent(getActivity());
                 it.putExtra("a", "a");
                 startActivity(it);
                 getActivity().overridePendingTransition(R.anim.activity_in, R.anim.activity_out);

