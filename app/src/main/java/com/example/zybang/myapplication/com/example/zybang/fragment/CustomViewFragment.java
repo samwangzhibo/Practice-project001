@@ -8,21 +8,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.zybang.myapplication.R;
+import com.example.zybang.myapplication.ui.activity.BezierActivity;
+import com.example.zybang.myapplication.ui.activity.CameraActivity;
+import com.example.zybang.myapplication.ui.activity.EmojiActivity;
 import com.example.zybang.myapplication.ui.activity.ScrollingActivity;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link CustomViewFragment.OnFragmentInteractionListener} interface
+ * {@link OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link CustomViewFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class CustomViewFragment extends Fragment implements View.OnClickListener {
 
+    @Bind(R.id.goto_emoji)
+    Button sadGotoEmoji;
     private OnFragmentInteractionListener mListener;
 
     public CustomViewFragment() {
@@ -54,15 +64,21 @@ public class CustomViewFragment extends Fragment implements View.OnClickListener
         View v = inflater.inflate(R.layout.fragment_custom_view, container, false);
         Button customScrollview1 = (Button) v.findViewById(R.id.custom_scrollview1);
         customScrollview1.setOnClickListener(this);
+        Button customScrollView2 = (Button) v.findViewById(R.id.custom_scrollview2);
+        customScrollView2.setOnClickListener(this);
+        Button customScrollView3 = (Button) v.findViewById(R.id.custom_scrollview3);
+        customScrollView3.setOnClickListener(this);
+        Button customScrollView4 = (Button) v.findViewById(R.id.custom_scrollview4);
+        customScrollView4.setOnClickListener(this);
+        Button customScrollView5 = (Button) v.findViewById(R.id.goto_recyclerView);
+        customScrollView5.setOnClickListener(this);
 
-
+        ButterKnife.bind(this, v);
         return v;
     }
 
     public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+        Toast.makeText(getActivity(), "back click", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -81,10 +97,33 @@ public class CustomViewFragment extends Fragment implements View.OnClickListener
                 startActivity(it);
                 getActivity().overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
                 break;
+            case R.id.custom_scrollview2:
+
+                break;
+            case R.id.custom_scrollview3:
+                startActivity(BezierActivity.creatIntent(getActivity()));
+                break;
+            case R.id.custom_scrollview4:
+                startActivity(CameraActivity.createIntent(getActivity()));
+                break;
+            case R.id.goto_recyclerView:
+                break;
             default:
                 break;
         }
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
+
+    @OnClick(R.id.goto_emoji)
+    public void onClick() {
+        startActivity(new Intent(getActivity(), EmojiActivity.class));
+    }
+
 
     /**
      * This interface must be implemented by activities that contain this
@@ -97,7 +136,6 @@ public class CustomViewFragment extends Fragment implements View.OnClickListener
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }

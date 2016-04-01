@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.zybang.myapplication.ui.activity.CameraActivity">
+
+    <RelativeLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/start_camera1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="启动相机1" />
+
+        <Button
+            android:layout_below="@id/start_camera1"
+            android:id="@+id/start_camera2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="启动相机2" />
+
+        <Button
+            android:layout_below="@id/start_camera2"
+            android:id="@+id/start_CustomCameras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CustomCameras" />
+
+        <RelativeLayout
+            android:layout_below="@id/start_CustomCameras"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:scaleType="center"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/custom_camera_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="welcome to myself camera"
+                android:textColor="#1b15ce"
+                android:textSize="20sp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

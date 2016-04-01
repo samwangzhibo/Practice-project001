@@ -10,10 +10,17 @@ import android.widget.TextView;
 
 import com.example.zybang.myapplication.R;
 import com.example.zybang.myapplication.com.example.zybang.customview.MyLineLayout;
+import com.example.zybang.myapplication.ui.activity.BackActivity2;
 import com.example.zybang.myapplication.ui.activity.backlayoutActivity;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class ClickFragment extends Fragment {
+    @Bind(R.id.goto_backlayout2)
+    Button sadGotoBacklayout2;
     private MyLineLayout mll;
 
     @Override
@@ -46,6 +53,7 @@ public class ClickFragment extends Fragment {
                 mll.addALine(a, b);
             }
         });
+        ButterKnife.bind(this, v);
         return v;
     }
 
@@ -54,4 +62,15 @@ public class ClickFragment extends Fragment {
         super.onDetach();
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
+
+    @OnClick(R.id.goto_backlayout2)
+    public void onClick() {
+        startActivity(BackActivity2.createIntent(getActivity()));
+        getActivity().overridePendingTransition(R.anim.in_from_top, R.anim.keep);
+    }
 }

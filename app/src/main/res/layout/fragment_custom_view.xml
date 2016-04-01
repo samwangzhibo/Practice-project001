@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.zybang.myapplication.com.example.zybang.fragment.CustomViewFragment">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,6 +16,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="自定义scrollview1" />
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="viewGroup生命周期"
+            android:id="@+id/custom_scrollview2" />
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="画图本"
+            android:id="@+id/custom_scrollview3" />
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="相机"
+            android:id="@+id/custom_scrollview4" />
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="emoji"
+            android:id="@+id/goto_emoji" />
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="recyclerView"
+            android:id="@+id/goto_recyclerView" />
     </LinearLayout>
 
 

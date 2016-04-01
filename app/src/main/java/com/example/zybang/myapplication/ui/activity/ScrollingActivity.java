@@ -37,7 +37,7 @@ public class ScrollingActivity extends ActionBarActivity implements View.OnClick
             case MotionEvent.ACTION_DOWN:
                 startY = (int) event.getY();
 
-                view.layout(0, startY, 0, 0);
+                //view.layout(0, startY, 0, 0);
                 break;
             case MotionEvent.ACTION_MOVE:
                 int moveY = (int) event.getY();
@@ -46,7 +46,7 @@ public class ScrollingActivity extends ActionBarActivity implements View.OnClick
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) view.getLayoutParams();
                 layoutParams2.topMargin = (int) (deltaY * MOVE_FACTOR);
                 //view.setLayoutParams(layoutParams1);
-                //view.requestLayout();
+                view.requestLayout();
 
                 break;
             case MotionEvent.ACTION_UP:

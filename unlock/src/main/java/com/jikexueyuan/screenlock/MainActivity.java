@@ -1,6 +1,7 @@
 package com.jikexueyuan.screenlock;
 
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,6 +19,7 @@ public class MainActivity extends ActionBarActivity {
 
         Button btn_setting = (Button) findViewById(R.id.button);
         Button btn_lock = (Button) findViewById(R.id.button2);
+        Button btn_camera = (Button) findViewById(R.id.button3);
 
         btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +37,13 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+        btn_camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

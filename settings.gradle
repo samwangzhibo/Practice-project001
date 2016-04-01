@@ -1,1 +1,1 @@
-include ':app', ':unlock'
+include ':app', ':unlock', ':emojiconlibrary', ':SwipeBackLayout', ':DragExpandGrid'
