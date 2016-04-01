@@ -9,6 +9,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.zybang.myapplication.ui.activity.CameraActivity">
 
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
     <RelativeLayout
         android:id="@+id/content_container"
         android:layout_width="match_parent"

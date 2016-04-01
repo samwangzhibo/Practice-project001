@@ -73,16 +73,12 @@ public class CustomCameraFragment extends Fragment implements View.OnClickListen
 
     public static CustomCameraFragment newInstance() {
         CustomCameraFragment fragment = new CustomCameraFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
     }
 
     @Override
